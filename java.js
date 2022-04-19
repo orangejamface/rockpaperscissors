@@ -15,6 +15,7 @@ choice.forEach(btn => btn.addEventListener('click', playRound)); //trigger the p
 function playRound() {
 
     let playerSelection = this.textContent; // sets player selection to whichever button is clicked
+    console.log(playerSelection);
 
     let computerPlay = numGen();
     if (computerPlay === 1) {
@@ -47,6 +48,20 @@ function playRound() {
     }
     console.log(result);
     console.log(`Computer: ${cScore} , Player:  ${pScore}`);
+    
+    if (cScore === 5){
+        console.log('GAME OVER MAN')
+        cScore = 0;
+        pScore = 0;
+    }
+    if (pScore === 5 ) {
+        console.log('YOU HAVE DEFEATED ME.....WWAAAAAAAaaaaaaa')
+        cScore = 0;
+        pScore = 0;
+    }
+
+    
+
 }
 
 // function game() {
