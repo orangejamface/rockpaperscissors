@@ -9,24 +9,12 @@
     return num;
 }
 
-const btn = document.querySelector('.rock');
-btn.addEventListener('click', playRound);  // THESE TWO LINES WORK WITH ONE BUTTON
-
-// const buttons = document.querySelectorAll('button');
-
-// buttons.forEach(btn => btn.addEventListener('click', playRound, { 
-    // capture: false,  //reverse bubbling if true
-    // once: true   //only allows one click listener
-//   }));
-
-// btn.forEach(btn => btn.addEventListener ('click', playRound));  
-
+const choice = document.querySelectorAll('button');
+choice.forEach(btn => btn.addEventListener('click', playRound)); //trigger the playRuond functino for any button in my html
 
 function playRound() {
 
-    // let result = 'default';
-
-    let playerSelection = btn.textContent;  //THIS WORKS WITH THE TWO LINES OF CODE AT 12 and 13
+    let playerSelection = this.textContent; // sets player selection to whichever button is clicked
 
     let computerPlay = numGen();
     if (computerPlay === 1) {
