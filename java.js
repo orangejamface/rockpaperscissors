@@ -10,8 +10,15 @@
 }
 
 const btn = document.querySelector('.rock');
-// const btn = document.querySelectorAll('button');
-btn.addEventListener('click', playRound);
+btn.addEventListener('click', playRound);  // THESE TWO LINES WORK WITH ONE BUTTON
+
+// const buttons = document.querySelectorAll('button');
+
+// buttons.forEach(btn => btn.addEventListener('click', playRound, { 
+    // capture: false,  //reverse bubbling if true
+    // once: true   //only allows one click listener
+//   }));
+
 // btn.forEach(btn => btn.addEventListener ('click', playRound));  
 
 
@@ -19,10 +26,7 @@ function playRound() {
 
     // let result = 'default';
 
-    // let input = (prompt('ROCK, PAPER, SCISSORS?', ''));
-    // let playerSelection = input.toUpperCase();
-    // let playerSelection = 'ROCK';
-    let playerSelection = btn.textContent;
+    let playerSelection = btn.textContent;  //THIS WORKS WITH THE TWO LINES OF CODE AT 12 and 13
 
     let computerPlay = numGen();
     if (computerPlay === 1) {
