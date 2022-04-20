@@ -2,3 +2,29 @@
     display: flex;
     justify-content: center;
 }   
+
+.end {
+    display: flex;
+    justify-content: center;
+
+}
+
+.score {
+
+}
+
+.gameButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.newGame {
+    display: none;
+    justify-content: center;
+}
+
+.pressToReset {
+    display: flex;
+    justify-content: center;
+}

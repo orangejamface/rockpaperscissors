@@ -9,10 +9,36 @@
     return num;
 }
 
-const choice = document.querySelectorAll('button');
-choice.forEach(btn => btn.addEventListener('click', playRound)); //trigger the playRuond functino for any button in my html
+const score = document.querySelector('.score');
+const end = document.querySelector('.end');
 
+const choice = document.querySelectorAll('#selection');
+choice.forEach(btn => btn.addEventListener('click', playRound)); //trigger the playRound function for any button in my html
+
+const gameBtns = document.querySelector('.gameButtons'); //div containing the three play option buttons
+const newGame = document.querySelector('.newGame'); //play again? button
+
+function resetButton() {
+    if (pScore === 5 || cScore === 5 ) {
+        cScore = 0;
+        pScore = 0;
+        gameBtns.style.cssText = 'display: none;'
+        newGame.style.cssText = 'display: flex;'
+    }  //function to remove play buttons and display reset button
+};
+
+newGame.addEventListener('click', resetGame);
+
+
+function resetGame() {
+    newGame.style.cssText = 'display: none;';
+    gameBtns.style.cssText = 'display: flex;';
+    score.textContent = `Computer: ${cScore}
+    Player:  ${pScore}`;
+    end.textContent = '';
+}
 function playRound() {
+
 
     let playerSelection = this.textContent; // sets player selection to whichever button is clicked
     console.log(playerSelection);
@@ -48,21 +74,24 @@ function playRound() {
     }
     console.log(result);
     console.log(`Computer: ${cScore} , Player:  ${pScore}`);
+    score.textContent = `Computer: ${cScore}
+    Player:  ${pScore}`;
+
     
     if (cScore === 5){
         console.log('GAME OVER MAN')
-        cScore = 0;
-        pScore = 0;
+        end.textContent = 'GAME OVER MAN'
+        resetButton();
     }
+
     if (pScore === 5 ) {
         console.log('YOU HAVE DEFEATED ME.....WWAAAAAAAaaaaaaa')
-        cScore = 0;
-        pScore = 0;
+        end.textContent = 'YOU HAVE DEFEATED ME'
+        resetButton();
     }
 
-    
-
 }
+
 
 // function game() {
 //      for (let i = 0; i < 5; i++) {
