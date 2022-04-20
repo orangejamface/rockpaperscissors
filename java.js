@@ -11,6 +11,8 @@
 
 const score = document.querySelector('.score');
 const end = document.querySelector('.end');
+const lastPlay = document.querySelector('.lastPlay');
+
 
 const choice = document.querySelectorAll('#selection');
 choice.forEach(btn => btn.addEventListener('click', playRound)); //trigger the playRound function for any button in my html
@@ -29,17 +31,16 @@ function resetButton() {
 
 newGame.addEventListener('click', resetGame);
 
-
 function resetGame() {
     newGame.style.cssText = 'display: none;';
     gameBtns.style.cssText = 'display: flex;';
     score.textContent = `Computer: ${cScore}
     Player:  ${pScore}`;
     end.textContent = '';
+    lastPlay.textContent = '';
 }
+
 function playRound() {
-
-
     let playerSelection = this.textContent; // sets player selection to whichever button is clicked
     console.log(playerSelection);
 
@@ -76,6 +77,8 @@ function playRound() {
     console.log(`Computer: ${cScore} , Player:  ${pScore}`);
     score.textContent = `Computer: ${cScore}
     Player:  ${pScore}`;
+    lastPlay.textContent = `You played ${playerSelection},
+    Your Opponent played ${computerSelection}`; 
 
     
     if (cScore === 5){
