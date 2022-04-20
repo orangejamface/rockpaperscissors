@@ -29,7 +29,8 @@ function resetButton() {
     }  //function to remove play buttons and display reset button
 };
 
-newGame.addEventListener('click', resetGame);
+newGame.addEventListener('click', resetGame); //when new game button is clicked, call the resetGame function
+
 
 function resetGame() {
     newGame.style.cssText = 'display: none;';
@@ -75,7 +76,7 @@ function playRound() {
     }
     console.log(result);
     console.log(`Computer: ${cScore} , Player:  ${pScore}`);
-    score.textContent = `Computer: ${cScore}
+    score.textContent = ` Computer: ${cScore}
     Player:  ${pScore}`;
     lastPlay.textContent = `You played ${playerSelection},
     Your Opponent played ${computerSelection}`; 
@@ -94,12 +95,3 @@ function playRound() {
     }
 
 }
-
-
-// function game() {
-//      for (let i = 0; i < 5; i++) {
-//        playRound();
-//      } 
-// }
-
-// game();
