@@ -9,9 +9,11 @@
     return num;
 }
 
-const score = document.querySelector('.score');
+const playScore = document.querySelector('.playScore');
+const comScore = document.querySelector('.comScore');
 const end = document.querySelector('.end');
 const lastPlay = document.querySelector('.lastPlay');
+const message = document.querySelector('.message');
 
 
 const choice = document.querySelectorAll('#selection');
@@ -35,10 +37,11 @@ newGame.addEventListener('click', resetGame); //when new game button is clicked,
 function resetGame() {
     newGame.style.cssText = 'display: none;';
     gameBtns.style.cssText = 'display: flex;';
-    score.textContent = `Computer: ${cScore}
-    Player:  ${pScore}`;
+    playScore.textContent = `Player:  ${pScore}`;
+    comScore.textContent = `Computer:  ${pScore}`;
     end.textContent = '';
     lastPlay.textContent = '';
+    message.textContent = '';
 }
 
 function playRound() {
@@ -57,40 +60,42 @@ function playRound() {
     if  ((playerSelection === 'ROCK' && computerSelection === 'ROCK') ||
         (playerSelection === 'PAPER' && computerSelection === 'PAPER') ||
         (playerSelection === 'SCISSORS' && computerSelection === 'SCISSORS')) {
-    result = 'Its a Draw';
+    result = 'Its a Draw!';
     }   
     else if ((playerSelection === 'ROCK' && computerSelection === 'PAPER') ||
             (playerSelection === 'PAPER' && computerSelection === 'SCISSORS') ||
             (playerSelection === 'SCISSORS' && computerSelection === 'ROCK')) {
-    result = 'You Loose!';
+    result = 'Ha! I got you fool!';
     ++cScore;
     }   
     else if ((playerSelection === 'ROCK' && computerSelection === 'SCISSORS') ||
         (playerSelection === 'PAPER' && computerSelection === 'ROCK') ||
         (playerSelection === 'SCISSORS' && computerSelection === 'PAPER')) {
-    result = 'You Win!';
+    result = 'You got me there...';
     ++pScore;
     }
     else {
     result = 'invalid entry';
     }
     console.log(result);
-    console.log(`Computer: ${cScore} , Player:  ${pScore}`);
-    score.textContent = ` Computer: ${cScore}
-    Player:  ${pScore}`;
+    console.log(`Player:  ${pScore}`);
+
+    playScore.textContent = `Player:  ${pScore}`;
+    comScore.textContent = `Computer: ${cScore}`;
     lastPlay.textContent = `You played ${playerSelection},
-    Your Opponent played ${computerSelection}`; 
+    I played ${computerSelection}`;
+    message.textContent = result;
 
     
     if (cScore === 5){
-        console.log('GAME OVER MAN')
-        end.textContent = 'GAME OVER MAN'
+        console.log('GAME OVER')
+        end.textContent = 'GAME OVER!  Better luck nect time'
         resetButton();
     }
 
     if (pScore === 5 ) {
         console.log('YOU HAVE DEFEATED ME.....WWAAAAAAAaaaaaaa')
-        end.textContent = 'YOU HAVE DEFEATED ME'
+        end.textContent = 'YOU HAVE DEFEATED ME!'
         resetButton();
     }
 
