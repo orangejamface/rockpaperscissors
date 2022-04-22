@@ -1,16 +1,61 @@
 
-.topSpace {
-    height: 150px;
+
+
+*       {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    box-sizing: border-box;
+    text-align: center;
 }
 
-.message, .gameButtons, .newGame, .pressToReset, .lastPlay, .end, .scoreboard {
+.topSpace {         /* Style applied to message at end of game, appears at top */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    background-color: aquamarine;
+    animation-name: blinkingBack; /* This will be animation for background */
+    animation-duration: 1s;
+    animation-iteration-count: 100;
+    margin: 50px;
+    padding: 30px;
+}
+@keyframes blinkingBack {
+    50% {
+      background-color: #ffcd5f;
+    }
+  } 
+
+
+body    {
+    background-color: rgb(175, 121, 225);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.message, .gameButtons, .newGame, .pressToReset, .lastPlay, .scoreboard {
     display: flex;
     justify-content: center;
 }
 
 .scoreboard {
+    border: 10px dotted #6af6e1;
+    animation-name: blinking; /* This will be animation for border */
+    animation-duration: 0.3s;
+    animation-iteration-count: 100;
     margin-top: 50px;
+    width: 400px;
+    height: 80px;
+    align-self: center;
+    align-items: center;
 } 
+
+@keyframes blinking {
+    50% {
+      border-color: #ffcd5f;
+    }
+  } 
 
 h2      {
     padding-left: 20px;
@@ -24,3 +69,33 @@ h2      {
 .newGame {
     display: none;
 }
+
+.gameButtons, .newGame {
+    margin-top: 30px;
+}
+
+ #selection, .newGame    { /* This style is applied to all buttons */
+    padding: 10px;
+    font-size: 40px;
+    background-color: cornsilk;
+    border-radius: 5%;
+} 
+
+
+/* .blinking {
+    border: 10px dotted #9ae2ff;
+    animation-name: blinking;
+    animation-duration: 1s;
+    animation-iteration-count: 100;
+    margin-top: 50px;
+    width: 400px;
+    height: 80px;
+    align-self: center;
+    flex-direction: row; */
+    /* align-items: center; */
+  /* }
+  @keyframes blinking {
+    50% {
+      border-color: #ffcd5f;
+    }
+  } */

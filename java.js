@@ -23,15 +23,21 @@ const gameBtns = document.querySelector('.gameButtons'); //div containing the th
 const newGame = document.querySelector('.newGame'); //play again? button
 
 function resetButton() {
+    if (pScore === 5)   {
+        end.textContent = 'Ok....how about another round?'
+    }
+    else {
+        end.textContent = 'HA, I told you!! try again if you dare'
+    }
     if (pScore === 5 || cScore === 5 ) {
         cScore = 0;
         pScore = 0;
         gameBtns.style.cssText = 'display: none;'
         newGame.style.cssText = 'display: flex;'
-    }  //function to remove play buttons and display reset button
+    }  //function to remove play buttons and display reset button once game is over
 };
 
-newGame.addEventListener('click', resetGame); //when new game button is clicked, call the resetGame function
+newGame.addEventListener('click', resetGame);
 
 
 function resetGame() {
@@ -39,14 +45,14 @@ function resetGame() {
     gameBtns.style.cssText = 'display: flex;';
     playScore.textContent = `Player:  ${pScore}`;
     comScore.textContent = `Computer:  ${pScore}`;
-    end.textContent = '';
+    end.textContent = 'here weeeee go!';
     lastPlay.textContent = '';
     message.textContent = '';
 }
 
 function playRound() {
-    let playerSelection = this.textContent; // sets player selection to whichever button is clicked
-    console.log(playerSelection);
+    let playerSelection = this.textContent; // sets playerSelection to text of whichever button is clicked
+    // console.log(playerSelection);
 
     let computerPlay = numGen();
     if (computerPlay === 1) {
@@ -57,6 +63,7 @@ function playRound() {
             computerSelection = 'SCISSORS'
         }
 
+    // result.style.cssText = 'background-color: red;'
     if  ((playerSelection === 'ROCK' && computerSelection === 'ROCK') ||
         (playerSelection === 'PAPER' && computerSelection === 'PAPER') ||
         (playerSelection === 'SCISSORS' && computerSelection === 'SCISSORS')) {
@@ -77,19 +84,19 @@ function playRound() {
     else {
     result = 'invalid entry';
     }
-    console.log(result);
-    console.log(`Player:  ${pScore}`);
+    // console.log(result);
+    // console.log(`Player:  ${pScore}`);
 
     playScore.textContent = `Player:  ${pScore}`;
     comScore.textContent = `Computer: ${cScore}`;
     lastPlay.textContent = `You played ${playerSelection},
-    I played ${computerSelection}`;
+    Computer played ${computerSelection}`;
     message.textContent = result;
 
     
     if (cScore === 5){
         console.log('GAME OVER')
-        end.textContent = 'GAME OVER!  Better luck nect time'
+        end.textContent = 'GAME OVER!  Better luck next time'
         resetButton();
     }
 
