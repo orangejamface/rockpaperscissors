@@ -63,7 +63,6 @@ function playRound() {
             computerSelection = 'SCISSORS'
         }
 
-    // result.style.cssText = 'background-color: red;'
     if  ((playerSelection === 'ROCK' && computerSelection === 'ROCK') ||
         (playerSelection === 'PAPER' && computerSelection === 'PAPER') ||
         (playerSelection === 'SCISSORS' && computerSelection === 'SCISSORS')) {
